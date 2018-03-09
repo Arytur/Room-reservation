@@ -9,6 +9,7 @@ Main functionality:
   * date(every room free for this day)
   * capacity(declare minimum capacity which needed)
   * projector(Yes/No, True of False)
+  
   Possibility to combine every necessary criteria to display a room which meets the requirements. 
 
 
