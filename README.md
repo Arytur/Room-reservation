@@ -10,3 +10,9 @@ Main functionality:
   * capacity(declare minimum capacity which needed)
   * projector(Yes/No, True of False)
   Possibility to combine every necessary criteria to display a room which meets the requirements. 
+
+
+![Image](https://github.com/Arytur/Room-reservation/blob/master/reserv1.png?raw=true)
+
+
+![Image](https://github.com/Arytur/Room-reservation/blob/master/reserv2.png?raw=true)
