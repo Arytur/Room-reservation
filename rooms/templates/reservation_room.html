@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+     {% for item in room %}
+        <h1>{{ item.name }}</h1>
+        <h3>ID: {{ item.id }}</h3>
+        <h3>Pojemność sali: {{ item.capacity }}</h3>
+        <h3>Projektor:
+        {% if item.projector == True %}
+            <input type="checkbox" id="projector" name="proj" checked>
+        {% else %}
+            <input type="checkbox" id="projector" name="proj">
+        {% endif %}</h3>
+        <h3>Rezerwacje: {{ item.reservation }}</h3>
+        <h3>Więcej o sali: {{ item.more }}</h3>
+
+         <hr>
+{{ message }}
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="date" name="res_date" min={{ today }}>
+        <textarea cols="50" rows="5" name="comment" placeholder="Dodatkowe infromacje"></textarea>
+        <input type="submit" value="Rezerwuj">
+    </form>
+    <a href="/"><button value="Powrot">Powrót</button></a>
+    {% endfor %}
+
+{% endblock %}

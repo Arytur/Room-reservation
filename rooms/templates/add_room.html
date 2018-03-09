@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Dodawanie sali</title>
+{% endblock %}
+
+{% block content %}
+
+<h2>Dodawanie sali</h2>
+    <div class="forma">
+        <form  action="#" method="POST">
+            {% csrf_token %}
+
+            <p>Nazwa sali:</p>
+            <input type="text" name="name" placeholder="Nazwa">
+            <p>Ilość miejsc:</p>
+            <input type="number" name="capacity" placeholder="Pojemność"><br>
+            <input type="checkbox" id="projector" name="proj" value="True">
+            <label for="projector">Projektor</label><br>
+            <textarea cols="50" rows="15" name="more" placeholder="Dodatkowe infromacje"></textarea><br>
+            <input type="submit" value="Zapisz">
+        </form>
+    </div>
+
+{% endblock %}

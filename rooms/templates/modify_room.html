@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% for item in room %}
+        {% csrf_token %}
+
+        <p>Nazwa sali <i>({{ item.name }})</i></p>
+        <input type="text" name="name" value={{ item.name }}>
+        <p>Ilość miejsc <i>({{ item.capacity }})</i></p>
+        <input type="number" name="capacity" value={{ item.capacity }}><br>
+        <p>Projektor <i>({{ item.projector }})</i></p>
+        {% if item.projector == True %}
+            <input type="checkbox" id="projector" name="proj" checked>
+        {% else %}
+            <input type="checkbox" id="projector" name="proj">
+        {% endif %}
+        <label for="projector">Projektor</label><br>
+        <p>Więcej informacji <i>({{ item.more }})</i></p>
+        <textarea cols="50" rows="15" name="more" placeholder="Dodatkowe infromacje">{{ item.more }}</textarea><br>
+        <input type="submit" value="Zapisz">
+    {% endfor %}
+</form>
+
+<a href="/"><button value="Powrót">Powrót</button></a>
+
+{% endblock %}

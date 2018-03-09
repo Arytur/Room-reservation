@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>Main page</title>
+
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <strong>Wyszukiwarka</strong>
+        <form method="GET" action="{% url 'search' %}" style="float: right; padding-right: 5%">
+            <div class="form-row">
+                <label>Nazwa sali:
+                    <input type="text" name="name"></label>
+                <label>Data:
+                <input type="date" name="date"></label>
+                <label>Pojemność:
+                <input type="number" name="capacity"></label>
+                <label>Rzutnik:
+                <input type="checkbox" name="projector"></label>
+
+                <input type="submit" value="Szukaj">
+            </div>
+        </form>
+    </div><br><hr><br>
+
+    <a href="/room/new"><button type="button" class="btn btn-warning btn-lg btn-block"><strong>Dodaj salę</strong></button></a>
+
+    <div class="window">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nazwa sali</th>
+                    <th>Ilość miejsc</th>
+                    <th>Status</th>
+                    <th>Edycja</th>
+                    <th>Usuń</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.id }}</td>
+                        <td><a href="room/{{ room.id }}">{{ room.name }}</a></td>
+                        <td>{{ room.capacity }}</td>
+                        {% for k,v in status.items %}
+                            {% if room.id == k %}
+                            <td>{{ v }}</td>
+                            {% endif %}
+                        {% endfor %}
+                        <td><a href="room/modify/{{ room.id }}">Link</a></td>
+                        <td><a href="room/delete/{{ room.id }}">Link</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+{% endblock %}

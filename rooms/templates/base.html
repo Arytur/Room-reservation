@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        a:link {
+        text-decoration: none;
+        }
+    </style>
+
+    {% block head %}
+        <title>Title</title>
+    {% endblock %}
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h2><a class="navbar-link" href="{%  url 'index' %}">Room reservation</a></h2>
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+      </div>
+        <div style="float: right">
+            {% now "jS F Y" %}
+        </div>
+    </nav>
+
+<div style="margin: 3%">
+{% block content %}
+
+{% endblock %}
+</div>
+</body>
+</html>

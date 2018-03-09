@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Wyniki wyszukiwania:</h1>
+
+{% if list_result %}
+    {% for item in list_result %}
+    <ul>
+        {% for i in item %}
+        <li><a href="room/{{ i.id }}">{{ i.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+{% else %}
+    <h3>Brak wyników dla podanych kryteriów.</h3>
+{% endif %}
+
+{% endblock %}

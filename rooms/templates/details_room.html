@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>{{ item.name }}</title>
+{% endblock %}
+
+{% block content %}
+    {% for item in room %}
+        <h1>{{ item.name }}</h1>
+        <h3>ID: {{ item.id }}</h3>
+        <h3>Pojemność sali: {{ item.capacity }}</h3>
+        <h3>Projektor:
+        {% if item.projector == True %}
+            <input type="checkbox" id="projector" name="proj" checked>
+        {% else %}
+            <input type="checkbox" id="projector" name="proj">
+        {% endif %}</h3>
+        <h3>Rezerwacje: </h3>
+        {% for date in reserv %}
+        <ul>
+            <li>{{ date }}</li>
+        </ul>
+        {% endfor %}
+        <h3>Więcej o sali: {{ item.more }}</h3>
+
+    <a href="/reservation/{{ item.id }}"><button value="Rezerwacja">Rezerwacja</button></a>
+    {% endfor %}
+    <a href="/"><button value="Powrót">Powrót</button></a>
+
+{% endblock %}
