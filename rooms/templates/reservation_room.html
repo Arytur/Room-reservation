@@ -1,30 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">
+
+    <form method="POST" style="margin: auto">
+        <div class="form-group">
+            {% csrf_token %}
+            <label>Data
+            <input type="date" name="res_date" min={{ today }} class="form-control"></label>
+            <textarea cols="30" rows="3" name="comment" placeholder="Dodatkowe infromacje" class="form-control"></textarea>
+            <input type="submit" value="Rezerwuj" class="btn btn-warning btn-lg btn-block">
+        </div>
+    </form><hr><br>
+
+    {% if message %}
+    <h3>{{ message }}</h3>
+    {% endif %}
 
      {% for item in room %}
-        <h1>{{ item.name }}</h1>
-        <h3>ID: {{ item.id }}</h3>
-        <h3>Pojemność sali: {{ item.capacity }}</h3>
-        <h3>Projektor:
+        <h3>{{ item.name }}</h3>
+        <h5>ID: {{ item.id }}</h5>
+        <h5>Pojemność sali: {{ item.capacity }}</h5>
+        <h5>Projektor:
         {% if item.projector == True %}
             <input type="checkbox" id="projector" name="proj" checked>
         {% else %}
             <input type="checkbox" id="projector" name="proj">
-        {% endif %}</h3>
-        <h3>Rezerwacje: {{ item.reservation }}</h3>
-        <h3>Więcej o sali: {{ item.more }}</h3>
+        {% endif %}</h5>
+        <h5>Rezerwacje: {{ item.reservation }}</h5>
+        <h5>Więcej o sali: {{ item.more }}</h5>
 
-         <hr>
-{{ message }}
-    <form method="POST">
-        {% csrf_token %}
-
-        <input type="date" name="res_date" min={{ today }}>
-        <textarea cols="50" rows="5" name="comment" placeholder="Dodatkowe infromacje"></textarea>
-        <input type="submit" value="Rezerwuj">
-    </form>
-    <a href="/"><button value="Powrot">Powrót</button></a>
     {% endfor %}
-
+</div>
 {% endblock %}

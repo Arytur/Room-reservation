@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <div class="container">
     {% for item in room %}
         <h1>{{ item.name }}</h1>
         <h3>ID: {{ item.id }}</h3>
@@ -23,8 +24,7 @@
         {% endfor %}
         <h3>Więcej o sali: {{ item.more }}</h3>
 
-    <a href="/reservation/{{ item.id }}"><button value="Rezerwacja">Rezerwacja</button></a>
+    <a href="/reservation/{{ item.id }}"><button value="Rezerwacja" class="btn btn-warning">Rezerwacja</button></a>
     {% endfor %}
-    <a href="/"><button value="Powrót">Powrót</button></a>
-
+    </div>
 {% endblock %}

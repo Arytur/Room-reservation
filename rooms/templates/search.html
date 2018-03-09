@@ -2,19 +2,46 @@
 
 {% block content %}
 
-<h1>Wyniki wyszukiwania:</h1>
+<div class="container">
+    <strong>Kryteria: </strong>
+    <ul>
+        <li><i>Nazwa: </i><strong>{{ name }}</strong></li>
+        <li><i>Data: </i><strong>{{ date }}</strong></li>
+        <li><i>Pojemność: </i><strong>{{ capacity }}</strong></li>
+        <li><i>Projektor: </i><strong>{% if projector %}Tak{% endif %}</strong></li>
+    </ul><br><hr>
+
+
 
 {% if list_result %}
+    <h2>Wyniki wyszukiwania:</h2><hr><br>
     {% for item in list_result %}
-    <ul>
+    <ul style="list-style-type: none">
         {% for i in item %}
-        <li><a href="room/{{ i.id }}">{{ i.name }}</a></li>
+        <li><h4><a href="room/{{ i.id }}">{{ i.name }}</a></h4></li>
         {% endfor %}
     </ul>
     {% endfor %}
 
 {% else %}
-    <h3>Brak wyników dla podanych kryteriów.</h3>
-{% endif %}
+    <h3>Brak wyników dla podanych kryteriów.</h3><br>
+    <h4>Wyszukaj ponownie</h4><br>
+    <div>
+        <form method="GET" action="{% url 'search' %}" style="margin: auto">
+            <div class="form-group">
+                <label>Nazwa
+                    <input type="text" name="name" class="form-control" placeholder="nazwa sali"></label>
+                <label>Data:
+                <input type="date" name="date" class="form-control"></label>
+                <label>Pojemność:
+                <input type="number" name="capacity" class="form-control" placeholder="pojemność"></label>
+                <label>
+                <input type="checkbox" name="projector" class="form-control">Projektor</label>
 
+                <input type="submit" value="Szukaj" class="btn btn-warning">
+            </div>
+        </form>
+    </div>
+{% endif %}
+</div>
 {% endblock %}

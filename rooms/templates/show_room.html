@@ -6,26 +6,25 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="container">
     <div>
-        <strong>Wyszukiwarka</strong>
-        <form method="GET" action="{% url 'search' %}" style="float: right; padding-right: 5%">
-            <div class="form-row">
-                <label>Nazwa sali:
-                    <input type="text" name="name"></label>
+        <form method="GET" action="{% url 'search' %}" style="margin: auto">
+            <div class="form-group">
+                <label>Nazwa
+                    <input type="text" name="name" class="form-control" placeholder="nazwa sali"></label>
                 <label>Data:
-                <input type="date" name="date"></label>
+                <input type="date" name="date" class="form-control"></label>
                 <label>Pojemność:
-                <input type="number" name="capacity"></label>
-                <label>Rzutnik:
-                <input type="checkbox" name="projector"></label>
+                <input type="number" name="capacity" class="form-control" placeholder="pojemność"></label>
+                <label>
+                <input type="checkbox" name="projector" class="form-control">Projektor</label>
 
-                <input type="submit" value="Szukaj">
+                <input type="submit" value="Szukaj" class="btn btn-warning">
             </div>
         </form>
     </div><br><hr><br>
 
-    <a href="/room/new"><button type="button" class="btn btn-warning btn-lg btn-block"><strong>Dodaj salę</strong></button></a>
+    <a href="/room/new"><button type="button" class="btn btn-info btn-lg btn-block"><strong>Dodaj salę</strong></button></a>
 
     <div class="window">
         <table class="table">
@@ -57,7 +56,7 @@
             </tbody>
         </table>
     </div>
-
+</div>
 
 
 

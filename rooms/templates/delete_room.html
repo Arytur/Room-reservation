@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="container">
     {% for item in room %}
         <h1>{{ item.name }}</h1>
         <h3>ID: {{ item.id }}</h3>
@@ -11,8 +11,7 @@
     {% endfor %}
     <form method="POST">
         {% csrf_token %}
-        <input type="submit" value="Usuń salę">
+        <input type="submit" value="Usuń salę" class="btn btn-danger btn-lg btn-block">
     </form>
-    <a href="/"><button value="Powrót">Powrót</button></a>
-
+</div>
 {% endblock %}

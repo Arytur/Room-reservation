@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-
-<h2>Dodawanie sali</h2>
+<div class="container">
+    <h2>Dodawanie sali</h2>
     <div class="forma">
         <form  action="#" method="POST">
             {% csrf_token %}
@@ -17,9 +17,9 @@
             <input type="number" name="capacity" placeholder="Pojemność"><br>
             <input type="checkbox" id="projector" name="proj" value="True">
             <label for="projector">Projektor</label><br>
-            <textarea cols="50" rows="15" name="more" placeholder="Dodatkowe infromacje"></textarea><br>
-            <input type="submit" value="Zapisz">
+            <textarea cols="40" rows="10" name="more" placeholder="Dodatkowe infromacje"></textarea><br>
+            <input type="submit" value="Zapisz" class="btn btn-warning">
         </form>
     </div>
-
+</div>
 {% endblock %}

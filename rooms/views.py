@@ -139,6 +139,10 @@ def room_search(request):
 
     context = {
         'list_result': list_result,
+        'name': name,
+        'date': date,
+        'capacity': capacity,
+        'projector': projector
     }
 
     return render(request, "search.html", context=context)
