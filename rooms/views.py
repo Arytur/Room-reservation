@@ -15,6 +15,7 @@ def show_room(request):
         else:
             status[room.id] = 'Wolna'
     context = {
+        'today': today,
         'rooms': rooms,
         'status': status
     }
